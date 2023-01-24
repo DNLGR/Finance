@@ -1,69 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Data.Models" />
-  <xs:element name="Test">
+  <xs:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FinanceServices.Enum" />
+  <xs:element name="Connect">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplicationHashCode" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="TestResponse">
+  <xs:element name="ConnectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConnectResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Disconnect">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ApplicationHashCode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisconnectResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="Execute">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="expression" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ExecuteResponse">
+  <xs:element name="GetDatabaseConnectionStatus">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExecuteResult">
+  <xs:element name="GetDatabaseConnectionStatusResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="expression" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/FinanceServices.Enum" minOccurs="0" name="GetDatabaseConnectionStatusResult" type="q1:DatabaseConnectionStatus" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ExecuteResultResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ExecuteResultResult" nillable="true" type="xs:anyType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ExsistUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="logn" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ExsistUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Data.Models" minOccurs="0" name="ExsistUserResult" nillable="true" type="q1:User" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AppendUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Data.Models" minOccurs="0" name="user" nillable="true" type="q2:User" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="AppendUserResponse">
+  <xs:element name="GetDatabaseStatus">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDatabaseStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/FinanceServices.Enum" minOccurs="0" name="GetDatabaseStatusResult" type="q2:DatabaseStatus" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DataCallBack">

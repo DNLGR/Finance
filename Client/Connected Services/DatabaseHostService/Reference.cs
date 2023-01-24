@@ -9,42 +9,58 @@
 //------------------------------------------------------------------------------
 
 namespace Client.DatabaseHostService {
+    using System.Runtime.Serialization;
     
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DatabaseConnectionStatus", Namespace="http://schemas.datacontract.org/2004/07/FinanceServices.Enum")]
+    public enum DatabaseConnectionStatus : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IsOpen = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IsClose = 1,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DatabaseStatus", Namespace="http://schemas.datacontract.org/2004/07/FinanceServices.Enum")]
+    public enum DatabaseStatus : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IsWaiting = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IsWorking = 1,
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DatabaseHostService.IDatabaseService", CallbackContract=typeof(Client.DatabaseHostService.IDatabaseServiceCallback))]
     public interface IDatabaseService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Test", ReplyAction="http://tempuri.org/IDatabaseService/TestResponse")]
-        void Test(string message);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Connect", ReplyAction="http://tempuri.org/IDatabaseService/ConnectResponse")]
+        int Connect(int ApplicationHashCode);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Test", ReplyAction="http://tempuri.org/IDatabaseService/TestResponse")]
-        System.Threading.Tasks.Task TestAsync(string message);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Connect", ReplyAction="http://tempuri.org/IDatabaseService/ConnectResponse")]
+        System.Threading.Tasks.Task<int> ConnectAsync(int ApplicationHashCode);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Execute", ReplyAction="http://tempuri.org/IDatabaseService/ExecuteResponse")]
-        void Execute(string expression);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Disconnect", ReplyAction="http://tempuri.org/IDatabaseService/DisconnectResponse")]
+        void Disconnect(int ApplicationHashCode);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Execute", ReplyAction="http://tempuri.org/IDatabaseService/ExecuteResponse")]
-        System.Threading.Tasks.Task ExecuteAsync(string expression);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Disconnect", ReplyAction="http://tempuri.org/IDatabaseService/DisconnectResponse")]
+        System.Threading.Tasks.Task DisconnectAsync(int ApplicationHashCode);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/ExecuteResult", ReplyAction="http://tempuri.org/IDatabaseService/ExecuteResultResponse")]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(Data.Models.User))]
-        object ExecuteResult(string expression);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatusResponse")]
+        Client.DatabaseHostService.DatabaseConnectionStatus GetDatabaseConnectionStatus();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/ExecuteResult", ReplyAction="http://tempuri.org/IDatabaseService/ExecuteResultResponse")]
-        System.Threading.Tasks.Task<object> ExecuteResultAsync(string expression);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatusResponse")]
+        System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseConnectionStatus> GetDatabaseConnectionStatusAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/ExsistUser", ReplyAction="http://tempuri.org/IDatabaseService/ExsistUserResponse")]
-        Data.Models.User ExsistUser(string logn, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseStatusResponse")]
+        Client.DatabaseHostService.DatabaseStatus GetDatabaseStatus();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/ExsistUser", ReplyAction="http://tempuri.org/IDatabaseService/ExsistUserResponse")]
-        System.Threading.Tasks.Task<Data.Models.User> ExsistUserAsync(string logn, string password);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/AppendUser", ReplyAction="http://tempuri.org/IDatabaseService/AppendUserResponse")]
-        void AppendUser(Data.Models.User user);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/AppendUser", ReplyAction="http://tempuri.org/IDatabaseService/AppendUserResponse")]
-        System.Threading.Tasks.Task AppendUserAsync(Data.Models.User user);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseStatusResponse")]
+        System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseStatus> GetDatabaseStatusAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -82,44 +98,36 @@ namespace Client.DatabaseHostService {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void Test(string message) {
-            base.Channel.Test(message);
+        public int Connect(int ApplicationHashCode) {
+            return base.Channel.Connect(ApplicationHashCode);
         }
         
-        public System.Threading.Tasks.Task TestAsync(string message) {
-            return base.Channel.TestAsync(message);
+        public System.Threading.Tasks.Task<int> ConnectAsync(int ApplicationHashCode) {
+            return base.Channel.ConnectAsync(ApplicationHashCode);
         }
         
-        public void Execute(string expression) {
-            base.Channel.Execute(expression);
+        public void Disconnect(int ApplicationHashCode) {
+            base.Channel.Disconnect(ApplicationHashCode);
         }
         
-        public System.Threading.Tasks.Task ExecuteAsync(string expression) {
-            return base.Channel.ExecuteAsync(expression);
+        public System.Threading.Tasks.Task DisconnectAsync(int ApplicationHashCode) {
+            return base.Channel.DisconnectAsync(ApplicationHashCode);
         }
         
-        public object ExecuteResult(string expression) {
-            return base.Channel.ExecuteResult(expression);
+        public Client.DatabaseHostService.DatabaseConnectionStatus GetDatabaseConnectionStatus() {
+            return base.Channel.GetDatabaseConnectionStatus();
         }
         
-        public System.Threading.Tasks.Task<object> ExecuteResultAsync(string expression) {
-            return base.Channel.ExecuteResultAsync(expression);
+        public System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseConnectionStatus> GetDatabaseConnectionStatusAsync() {
+            return base.Channel.GetDatabaseConnectionStatusAsync();
         }
         
-        public Data.Models.User ExsistUser(string logn, string password) {
-            return base.Channel.ExsistUser(logn, password);
+        public Client.DatabaseHostService.DatabaseStatus GetDatabaseStatus() {
+            return base.Channel.GetDatabaseStatus();
         }
         
-        public System.Threading.Tasks.Task<Data.Models.User> ExsistUserAsync(string logn, string password) {
-            return base.Channel.ExsistUserAsync(logn, password);
-        }
-        
-        public void AppendUser(Data.Models.User user) {
-            base.Channel.AppendUser(user);
-        }
-        
-        public System.Threading.Tasks.Task AppendUserAsync(Data.Models.User user) {
-            return base.Channel.AppendUserAsync(user);
+        public System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseStatus> GetDatabaseStatusAsync() {
+            return base.Channel.GetDatabaseStatusAsync();
         }
     }
 }

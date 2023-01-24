@@ -10,32 +10,69 @@
       Title="Register">
 
     <Page.Resources>
-        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignOutlinedDarkButton}">
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}">
             <Setter Property="Margin" Value="5" />
         </Style>
 
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
             <Setter Property="Margin" Value="5" />
         </Style>
+
+        <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignOutlinedRevealPasswordBox}">
+            <Setter Property="Margin" Value="5" />
+        </Style>
     </Page.Resources>
 
     <Grid>
-        <StackPanel Orientation="Vertical" 
-                    HorizontalAlignment="Center"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" Grid.RowSpan="2" 
+                    Orientation="Vertical" 
+                    HorizontalAlignment="Right"
                     VerticalAlignment="Center">
+            
             <TextBox materialDesign:HintAssist.Hint="Логин" 
                      Width="180" x:Name="LoginBox"/>
-
-            <TextBox materialDesign:HintAssist.Hint="Пароль" 
+            
+            <PasswordBox materialDesign:HintAssist.Hint="Пароль" 
                      Width="180" x:Name="PasswordBox" />
 
-            <TextBox materialDesign:HintAssist.Hint="Имя" 
-                     Width="180" x:Name="FNameBox" />
+            <PasswordBox materialDesign:HintAssist.Hint="Подтвердите пароль" 
+                     Width="180" x:Name="PasswordRepeatBox" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" 
+                    Grid.RowSpan="2"  
+                    Orientation="Vertical" 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center">
 
             <TextBox materialDesign:HintAssist.Hint="Фамилия" 
-                     Width="180" x:Name="LNameBox" />
+                     Width="180" x:Name="FNameBox" />
 
-            <Button Content="Регистрация"
+            <TextBox materialDesign:HintAssist.Hint="Имя" 
+                     Width="180" x:Name="MNameBox" />
+
+            <TextBox materialDesign:HintAssist.Hint="Отчество" 
+                     Width="180" x:Name="LNameBox" />
+        </StackPanel>
+
+        <StackPanel Grid.ColumnSpan="2" 
+                    Grid.Row="2"  
+                    Orientation="Vertical" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            
+            <Button Content="Зарегистрироваться"
                     Click="BtnRegister_Click"/>
 
             <Button Content="Отмена" 

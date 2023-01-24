@@ -11,7 +11,7 @@
       Title="Login">
 
     <Page.Resources>
-        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignOutlinedDarkButton}">
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}">
             <Setter Property="Margin" Value="5" />
         </Style>
         
@@ -40,6 +40,9 @@
             
             <Button Content="Регистрация" 
                     Click="BtnRegister_Click"/>
+
+            <Button Content="Выход" 
+                    Click="BtnExit_Click"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -33,62 +33,52 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Data.Models" />
+      <xsd:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FinanceServices.Enum" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IDatabaseService_Test_InputMessage">
-    <wsdl:part name="parameters" element="tns:Test" />
+  <wsdl:message name="IDatabaseService_Connect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Connect" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseService_Test_OutputMessage">
-    <wsdl:part name="parameters" element="tns:TestResponse" />
+  <wsdl:message name="IDatabaseService_Connect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectResponse" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseService_Execute_InputMessage">
-    <wsdl:part name="parameters" element="tns:Execute" />
+  <wsdl:message name="IDatabaseService_Disconnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Disconnect" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseService_Execute_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExecuteResponse" />
+  <wsdl:message name="IDatabaseService_Disconnect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectResponse" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseService_ExecuteResult_InputMessage">
-    <wsdl:part name="parameters" element="tns:ExecuteResult" />
+  <wsdl:message name="IDatabaseService_GetDatabaseConnectionStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatabaseConnectionStatus" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseService_ExecuteResult_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExecuteResultResponse" />
+  <wsdl:message name="IDatabaseService_GetDatabaseConnectionStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatabaseConnectionStatusResponse" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseService_ExsistUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:ExsistUser" />
+  <wsdl:message name="IDatabaseService_GetDatabaseStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatabaseStatus" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseService_ExsistUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ExsistUserResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDatabaseService_AppendUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:AppendUser" />
-  </wsdl:message>
-  <wsdl:message name="IDatabaseService_AppendUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AppendUserResponse" />
+  <wsdl:message name="IDatabaseService_GetDatabaseStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatabaseStatusResponse" />
   </wsdl:message>
   <wsdl:message name="IDatabaseService_DataCallBack_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:DataCallBack" />
   </wsdl:message>
   <wsdl:portType name="IDatabaseService">
-    <wsdl:operation name="Test">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/Test" message="tns:IDatabaseService_Test_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/TestResponse" message="tns:IDatabaseService_Test_OutputMessage" />
+    <wsdl:operation name="Connect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/Connect" message="tns:IDatabaseService_Connect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/ConnectResponse" message="tns:IDatabaseService_Connect_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Execute">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/Execute" message="tns:IDatabaseService_Execute_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/ExecuteResponse" message="tns:IDatabaseService_Execute_OutputMessage" />
+    <wsdl:operation name="Disconnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/Disconnect" message="tns:IDatabaseService_Disconnect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/DisconnectResponse" message="tns:IDatabaseService_Disconnect_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ExecuteResult">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/ExecuteResult" message="tns:IDatabaseService_ExecuteResult_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/ExecuteResultResponse" message="tns:IDatabaseService_ExecuteResult_OutputMessage" />
+    <wsdl:operation name="GetDatabaseConnectionStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatus" message="tns:IDatabaseService_GetDatabaseConnectionStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatusResponse" message="tns:IDatabaseService_GetDatabaseConnectionStatus_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ExsistUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/ExsistUser" message="tns:IDatabaseService_ExsistUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/ExsistUserResponse" message="tns:IDatabaseService_ExsistUser_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AppendUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/AppendUser" message="tns:IDatabaseService_AppendUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/AppendUserResponse" message="tns:IDatabaseService_AppendUser_OutputMessage" />
+    <wsdl:operation name="GetDatabaseStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetDatabaseStatus" message="tns:IDatabaseService_GetDatabaseStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetDatabaseStatusResponse" message="tns:IDatabaseService_GetDatabaseStatus_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DataCallBack">
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/DataCallBack" message="tns:IDatabaseService_DataCallBack_OutputCallbackMessage" />
@@ -97,8 +87,8 @@
   <wsdl:binding name="NetTcpBinding_IDatabaseService" type="tns:IDatabaseService">
     <wsp:PolicyReference URI="#NetTcpBinding_IDatabaseService_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="Test">
-      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/Test" style="document" />
+    <wsdl:operation name="Connect">
+      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/Connect" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -106,8 +96,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Execute">
-      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/Execute" style="document" />
+    <wsdl:operation name="Disconnect">
+      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/Disconnect" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -115,8 +105,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ExecuteResult">
-      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/ExecuteResult" style="document" />
+    <wsdl:operation name="GetDatabaseConnectionStatus">
+      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatus" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -124,17 +114,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ExsistUser">
-      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/ExsistUser" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AppendUser">
-      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/AppendUser" style="document" />
+    <wsdl:operation name="GetDatabaseStatus">
+      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/GetDatabaseStatus" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

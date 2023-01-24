@@ -1,15 +1,11 @@
-﻿using Client.View.Pages;
-using System.Data;
+﻿using Client.Components;
+using Client.View.Pages;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Client
 {
     public partial class MainWindow
     {
-        #region Var
-        #endregion
-
         #region Ctor
         public MainWindow()
         {
@@ -17,12 +13,8 @@ namespace Client
 
             DataContext = this;
 
-            Navigator.SetContentFrame(ref MainContentFrame);
-
-            Navigator.Navigate(new Login());
+            Core.GetInstance().GetNavigator.SetContentFrame(ref MainContentFrame);
         }
-
-
         #endregion
 
         #region Methods
@@ -36,5 +28,10 @@ namespace Client
             WindowState = WindowState.Minimized;
         }
         #endregion
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Core.GetInstance().GetNavigator.Navigate("Login");
+        }
     }
 }

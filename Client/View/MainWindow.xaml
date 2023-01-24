@@ -7,43 +7,22 @@
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="450" 
+        Height="480" 
         Width="800"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
-        WindowStyle="None">
+        WindowStyle="None" Loaded="Window_Loaded">
 
     <Window.Resources>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}" />
-        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignOutlinedDarkButton}">
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}">
             <Setter Property="Margin" Value="5 0 5 0" />
         </Style>
     </Window.Resources>
    
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition />
-            <ColumnDefinition Width="200" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="52" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-
-        <StackPanel Orientation="Horizontal" 
-                    Grid.Row="0"
-                    Grid.Column="3"
-                    HorizontalAlignment="Right">
-            <Button Content="{materialDesign:PackIcon Kind=Minimize}" 
-                    Click="BtnMinimize_Click" />
-
-            <Button Content="{materialDesign:PackIcon Kind=Close}" 
-                    Click="BtnClose_Click" />
-        </StackPanel>
-
         <Frame Grid.ColumnSpan="3" 
-               Grid.Row="1"
+               Grid.RowSpan="2"
                NavigationUIVisibility="Hidden"
                x:Name="MainContentFrame"/>
     </Grid>

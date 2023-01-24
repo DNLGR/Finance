@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Client.Components;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Client.View.Pages
@@ -14,11 +15,26 @@ namespace Client.View.Pages
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.GoBack();
+            Core.GetInstance().GetNavigator.Navigate("Login");
         }
 
         private void BtnRegister_Click(object sender, RoutedEventArgs e)
         {
+            if (PasswordBox.Password.Length < 4)
+            {
+                return;
+            }
+
+            if (PasswordBox.Password != PasswordRepeatBox.Password)
+            {
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(FNameBox.Text) || string.IsNullOrWhiteSpace(MNameBox.Text) || string.IsNullOrWhiteSpace(LNameBox.Text))
+            {
+                return;
+            }
+
             //Core.ServiceManager.AppendUser(new Data.Models.User()
             //{
             //    Login = LoginBox.Text,
@@ -26,6 +42,12 @@ namespace Client.View.Pages
             //    FirstName = FNameBox.Text,
             //    LastName = LNameBox.Text
             //});
+
+            Core.GetInstance().GetNavigator.NavigateNew(new ClientPage()
+            {
+                Content = new SecretCode(LoginBox.Text.GetHashCode() + FNameBox.Text.GetHashCode(), 1),
+                Title = "SecretCode"
+            });
         }
     }
 }

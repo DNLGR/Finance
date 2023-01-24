@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Client.Components;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -11,14 +11,19 @@ namespace Client.View.Pages
             InitializeComponent();
         }
 
-        private void AccountChange_Click(object sender, RoutedEventArgs e)
+        private void BtnChangeAccount_Click(object sender, RoutedEventArgs e)
         {
-
+            Core.GetInstance().GetNavigator.Navigate("Login");
         }
 
-        private void ButtonTable_Click(object sender, RoutedEventArgs e)
+        private void BtnShutdown_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Shutdown();
+        }
 
+        private void BtnNavigate_Click(object sender, RoutedEventArgs e)
+        {
+            Core.GetInstance().GetNavigator.Navigate(ContentFrame, (sender as ContentControl).Tag.ToString());
         }
     }
 }

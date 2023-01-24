@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Client.Components;
+using System.Windows;
 
 namespace Client
 {
@@ -6,6 +7,17 @@ namespace Client
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            _ = Core.GetInstance();
+
+            try
+            {
+                Core.GetInstance().Connect(Core.GetInstance().GetServiceManager.DatabaseServiceClient.Connect(GetHashCode()));
+            }
+            catch
+            {
+
+            }
+
             new MainWindow().Show();
         }
     }

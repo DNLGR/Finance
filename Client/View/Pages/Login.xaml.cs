@@ -1,39 +1,47 @@
-﻿using Data.Models;
+﻿using Client.Components;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Client.View.Pages
 {
-    public partial class Login : Page, DatabaseHostService.IDatabaseServiceCallback
+    public partial class Login
     {
-        ServiceManager serviceManager;
         public Login()
         {
             InitializeComponent();
 
             DataContext = this;
-
-            serviceManager = new ServiceManager();
-        }
-
-        public void DataCallBack(string obj)
-        {
-            
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Core.LocalUser = serviceManager.DatabaseServiceClient.ExsistUser(LoginBox.Text, PasswordBox.Password);
+            //var obj =  Core.GetInstance().DeSerialize<DatabaseAnswer>(Core.GetInstance().GetServiceManager.DatabaseServiceClient.UserExist(
+            //    new User()
+            //    {
+            //        LoginHash = LoginBox.Text,
+            //        PasswordHash = PasswordBox.Password
+            //    }
+            //));
 
-            if (Core.LocalUser != null)
-            {
-                Navigator.Navigate(new Content());
-            }
+            //if (obj.Exception != null)
+            //{
+            //    MessageBox.Show(obj.Exception.Description, obj.Exception.Title, MessageBoxButton.OK, MessageBoxImage.Error);
+
+            //    return;
+            //}
+
+            //Core.GetInstance().SetUser = (User)obj.Parametr;
+
+            Core.GetInstance().GetNavigator.Navigate("Content");
         }
 
         private void BtnRegister_Click(object sender, RoutedEventArgs e)
         {
-            Navigator.Navigate(new Register());
+            Core.GetInstance().GetNavigator.Navigate("Register");
+        }
+
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

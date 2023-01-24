@@ -1,5 +1,4 @@
-﻿using Data.Models;
-using System.Data;
+﻿using FinanceServices.Enum;
 using System.ServiceModel;
 
 namespace FinanceServices.Interfaces
@@ -8,19 +7,16 @@ namespace FinanceServices.Interfaces
     public interface IDatabaseService
     {
         [OperationContract]
-        void Test(string message);
+        int Connect(int ApplicationHashCode);
 
         [OperationContract]
-        void Execute(string expression);
+        void Disconnect(int ApplicationHashCode);
 
         [OperationContract]
-        object ExecuteResult(string expression);
+        DatabaseConnectionStatus GetDatabaseConnectionStatus();
 
         [OperationContract]
-        User ExsistUser(string logn, string password);
-
-        [OperationContract]
-        void AppendUser(User user);
+        DatabaseStatus GetDatabaseStatus();
     }
 
     public interface IDatabaseDataCallBack

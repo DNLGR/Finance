@@ -3,7 +3,7 @@ using System.ServiceModel;
 
 namespace FinanceServices.Models
 {
-    public class ServerUser : User
+    public class ServerSession : Session
     {
         public OperationContext UserOperationContext { get; set; }
     }
