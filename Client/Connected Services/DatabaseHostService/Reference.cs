@@ -61,6 +61,12 @@ namespace Client.DatabaseHostService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseStatusResponse")]
         System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseStatus> GetDatabaseStatusAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseTable", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseTableResponse")]
+        System.Data.DataTable GetDatabaseTable(string TableName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseTable", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseTableResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetDatabaseTableAsync(string TableName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -128,6 +134,14 @@ namespace Client.DatabaseHostService {
         
         public System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseStatus> GetDatabaseStatusAsync() {
             return base.Channel.GetDatabaseStatusAsync();
+        }
+        
+        public System.Data.DataTable GetDatabaseTable(string TableName) {
+            return base.Channel.GetDatabaseTable(TableName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetDatabaseTableAsync(string TableName) {
+            return base.Channel.GetDatabaseTableAsync(TableName);
         }
     }
 }

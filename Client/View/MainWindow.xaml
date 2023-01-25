@@ -7,11 +7,12 @@
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="480" 
+        Height="500" 
         Width="800"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
-        WindowStyle="None" Loaded="Window_Loaded">
+        WindowStyle="None" Loaded="Window_Loaded"
+        ResizeMode="NoResize">
 
     <Window.Resources>
         <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}" />

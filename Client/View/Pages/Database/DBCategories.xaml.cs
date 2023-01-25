@@ -1,28 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Data;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Client.View.Pages.Database
 {
-    /// <summary>
-    /// Логика взаимодействия для BDCategories.xaml
-    /// </summary>
     public partial class DBCategories : Page
     {
+        public DataTable categoriesDataTable { get; set; }
+
         public DBCategories()
         {
             InitializeComponent();
+
+            //Core.GetInstance().GetServiceManager.DatabaseServiceClient.GetDatabaseTable("Categories");
+
+            DataContext = this;
+        }
+
+        private void BtnAdd_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+        private void BtnEdit_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+        private void BtnRemove_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
         }
     }
 }

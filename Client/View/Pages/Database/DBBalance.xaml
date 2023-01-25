@@ -1,4 +1,5 @@
 ﻿<Page x:Class="Client.View.Pages.Database.DBBalance"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,6 +10,25 @@
       Title="DBBalance">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <materialDesign:Card Margin="5" BorderThickness="0.5" 
+                                 Padding="8" 
+                                 UniformCornerRadius="5" 
+                                 Background="{DynamicResource PrimaryHueDarkBrush}"
+                                 Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}">
+                <TextBlock Text="Итоговая сумма по бухгалтерскому балансу : " TextWrapping="Wrap"/>
+            </materialDesign:Card>
+        </StackPanel>
     </Grid>
 </Page>

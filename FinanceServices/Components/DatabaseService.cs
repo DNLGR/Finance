@@ -2,6 +2,7 @@
 using FinanceServices.Enum;
 using FinanceServices.Interfaces;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.ServiceModel;
 
@@ -48,6 +49,11 @@ namespace FinanceServices.Components
         public DatabaseStatus GetDatabaseStatus()
         {
             return databaseProvider.GetDatabaseStatus;
+        }
+
+        public DataTable GetDatabaseTable(string TableName)
+        {
+            return databaseProvider.GetDataTable(TableName);
         }
 
         //public string UserExist(User obj)

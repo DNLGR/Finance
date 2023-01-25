@@ -101,7 +101,7 @@
         <!--#endregion-->
         
         <!--#region Frame -->
-        <Frame Grid.ColumnSpan="3" 
+        <Frame Grid.Column="1" 
                Grid.Row="1"
                NavigationUIVisibility="Hidden"
                x:Name="ContentFrame"/>

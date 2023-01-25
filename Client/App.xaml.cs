@@ -17,6 +17,10 @@ namespace Client
             {
 
             }
+            finally
+            {
+                Core.GetInstance().Connect(GetHashCode());
+            }
 
             new MainWindow().Show();
         }

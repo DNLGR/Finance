@@ -1,7 +1,7 @@
 ﻿using FinanceServices.Database;
 using FinanceServices.Enum;
-using System;
 using System.Data;
+using System.ServiceModel.Syndication;
 
 namespace FinanceServices.Components
 {
@@ -29,6 +29,13 @@ namespace FinanceServices.Components
                 return databaseStatus;
             }
         }
+
+        public DataTable GetDataTable(string TableName)
+        {
+            var obj = finance_dbDataSet.Tables["Categories"];
+
+            return finance_dbDataSet.Tables[TableName];
+        }
         #endregion
 
         #region Ctor
@@ -39,12 +46,12 @@ namespace FinanceServices.Components
         #endregion
 
         #region Method
-        public bool Contains(DataTable dataTable, int Column)
+        public bool Exsist(string TableName, params string[] values)
         {
-            foreach (var item in dataTable.Rows)
-            {
-                return true;
-            }
+            //foreach (var item in dataTable.Rows)
+            //{
+            //    return true;
+            //}
 
             return false;
         }
