@@ -94,13 +94,13 @@
     <Compile Include="Components\DatabaseResponce.cs" />
     <Compile Include="Components\DatabaseService.cs" />
     <Compile Include="Components\DatabaseException.cs" />
-    <Compile Include="Database\finance_dbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>finance_dbDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Enum\DatabaseConnectionStatus.cs" />
     <Compile Include="Enum\DatabaseStatus.cs" />
+    <Compile Include="Finance_dbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Finance_dbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IDatabaseService.cs" />
     <Compile Include="Models\ServerSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,16 +112,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Database\finance_dbDataSet.xsc">
-      <DependentUpon>finance_dbDataSet.xsd</DependentUpon>
+    <None Include="Finance_dbDataSet.xsc">
+      <DependentUpon>Finance_dbDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Database\finance_dbDataSet.xsd">
+    <None Include="Finance_dbDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>finance_dbDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>Finance_dbDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Database\finance_dbDataSet.xss">
-      <DependentUpon>finance_dbDataSet.xsd</DependentUpon>
+    <None Include="Finance_dbDataSet.xss">
+      <DependentUpon>Finance_dbDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -148,10 +148,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\finance_db.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="Database\" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

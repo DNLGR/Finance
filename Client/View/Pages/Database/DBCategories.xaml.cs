@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Client.Components;
+using System.Data;
 using System.Windows.Controls;
 
 namespace Client.View.Pages.Database
@@ -18,7 +19,7 @@ namespace Client.View.Pages.Database
 
         private void BtnAdd_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            categoriesDataTable = Core.GetInstance().GetServiceManager.DatabaseServiceClient.Pro
         }
         private void BtnEdit_Click(object sender, System.Windows.RoutedEventArgs e)
         {

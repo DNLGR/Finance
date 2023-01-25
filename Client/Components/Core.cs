@@ -1,5 +1,6 @@
 ﻿using Data.Models;
 using System;
+using System.Data;
 using System.Text.Json;
 
 namespace Client.Components
@@ -57,6 +58,8 @@ namespace Client.Components
         {
             get => navigatorManager;
         }
+
+        public DataSet GetFinanceDataSet { get; set; }
         #endregion
 
         #region Private var

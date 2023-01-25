@@ -1,5 +1,6 @@
-﻿using FinanceServices.Enum;
-using System.Data;
+﻿using FinanceServices.Components;
+using FinanceServices.Enum;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace FinanceServices.Interfaces
@@ -20,7 +21,7 @@ namespace FinanceServices.Interfaces
         DatabaseStatus GetDatabaseStatus();
 
         [OperationContract]
-        DataTable GetDatabaseTable(string TableName);
+        DatabaseProvider GetDatabaseProvider { get; }
     }
 
     public interface IDatabaseDataCallBack

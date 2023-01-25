@@ -9,30 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace Client.DatabaseHostService {
-    using System.Runtime.Serialization;
     
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DatabaseConnectionStatus", Namespace="http://schemas.datacontract.org/2004/07/FinanceServices.Enum")]
-    public enum DatabaseConnectionStatus : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        IsOpen = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        IsClose = 1,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DatabaseStatus", Namespace="http://schemas.datacontract.org/2004/07/FinanceServices.Enum")]
-    public enum DatabaseStatus : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        IsWaiting = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        IsWorking = 1,
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DatabaseHostService.IDatabaseService", CallbackContract=typeof(Client.DatabaseHostService.IDatabaseServiceCallback))]
@@ -51,22 +28,16 @@ namespace Client.DatabaseHostService {
         System.Threading.Tasks.Task DisconnectAsync(int ApplicationHashCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatusResponse")]
-        Client.DatabaseHostService.DatabaseConnectionStatus GetDatabaseConnectionStatus();
+        FinanceServices.Enum.DatabaseConnectionStatus GetDatabaseConnectionStatus();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatusResponse")]
-        System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseConnectionStatus> GetDatabaseConnectionStatusAsync();
+        System.Threading.Tasks.Task<FinanceServices.Enum.DatabaseConnectionStatus> GetDatabaseConnectionStatusAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseStatusResponse")]
-        Client.DatabaseHostService.DatabaseStatus GetDatabaseStatus();
+        FinanceServices.Enum.DatabaseStatus GetDatabaseStatus();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseStatusResponse")]
-        System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseStatus> GetDatabaseStatusAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseTable", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseTableResponse")]
-        System.Data.DataTable GetDatabaseTable(string TableName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseTable", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseTableResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> GetDatabaseTableAsync(string TableName);
+        System.Threading.Tasks.Task<FinanceServices.Enum.DatabaseStatus> GetDatabaseStatusAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -120,28 +91,20 @@ namespace Client.DatabaseHostService {
             return base.Channel.DisconnectAsync(ApplicationHashCode);
         }
         
-        public Client.DatabaseHostService.DatabaseConnectionStatus GetDatabaseConnectionStatus() {
+        public FinanceServices.Enum.DatabaseConnectionStatus GetDatabaseConnectionStatus() {
             return base.Channel.GetDatabaseConnectionStatus();
         }
         
-        public System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseConnectionStatus> GetDatabaseConnectionStatusAsync() {
+        public System.Threading.Tasks.Task<FinanceServices.Enum.DatabaseConnectionStatus> GetDatabaseConnectionStatusAsync() {
             return base.Channel.GetDatabaseConnectionStatusAsync();
         }
         
-        public Client.DatabaseHostService.DatabaseStatus GetDatabaseStatus() {
+        public FinanceServices.Enum.DatabaseStatus GetDatabaseStatus() {
             return base.Channel.GetDatabaseStatus();
         }
         
-        public System.Threading.Tasks.Task<Client.DatabaseHostService.DatabaseStatus> GetDatabaseStatusAsync() {
+        public System.Threading.Tasks.Task<FinanceServices.Enum.DatabaseStatus> GetDatabaseStatusAsync() {
             return base.Channel.GetDatabaseStatusAsync();
-        }
-        
-        public System.Data.DataTable GetDatabaseTable(string TableName) {
-            return base.Channel.GetDatabaseTable(TableName);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> GetDatabaseTableAsync(string TableName) {
-            return base.Channel.GetDatabaseTableAsync(TableName);
         }
     }
 }

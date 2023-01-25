@@ -22,12 +22,11 @@
     <MetadataSource Address="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="2673d598-c00a-4536-8d8b-c6339c409a7b" SourceId="1" SourceUrl="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd3" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="add2f459-30cd-4fdd-9586-febc812290ef" SourceId="1" SourceUrl="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd2" />
-    <MetadataFile FileName="DatabaseService.wsdl" MetadataType="Wsdl" ID="5fa81a3c-b124-4c33-a178-d81f43b4370b" SourceId="1" SourceUrl="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?wsdl" />
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="23a0cf98-3cda-4c2f-9254-405e037c7dc2" SourceId="1" SourceUrl="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd0" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="3dd42af9-843c-478e-bc29-46ca62d47899" SourceId="1" SourceUrl="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd1" />
+    <MetadataFile FileName="DatabaseService.wsdl" MetadataType="Wsdl" ID="5fa81a3c-b124-4c33-a178-d81f43b4370b" SourceId="1" SourceUrl="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?wsdl" />
     <MetadataFile FileName="item.disco" MetadataType="Disco" ID="c14e542f-0299-4860-8ad7-59398478b834" SourceId="1" SourceUrl="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?disco" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="add2f459-30cd-4fdd-9586-febc812290ef" SourceId="1" SourceUrl="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

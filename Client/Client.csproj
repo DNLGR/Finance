@@ -233,12 +233,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\DatabaseHostService\Client.DatabaseHostService.DatabaseConnectionStatus.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\DatabaseHostService\Client.DatabaseHostService.DatabaseStatus.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\DatabaseHostService\DatabaseService.wsdl" />
     <None Include="Connected Services\DatabaseHostService\item.xsd">
       <SubType>Designer</SubType>
@@ -247,9 +241,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\DatabaseHostService\item2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\DatabaseHostService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -290,6 +281,10 @@
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B}</Project>
       <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinanceServices\FinanceServices.csproj">
+      <Project>{4660BA4B-697B-4F94-A292-26C12961FFFB}</Project>
+      <Name>FinanceServices</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,19 +1,22 @@
-﻿using FinanceServices.Database;
-using FinanceServices.Enum;
+﻿using FinanceServices.Enum;
+using System;
+using System.ComponentModel;
 using System.Data;
-using System.ServiceModel.Syndication;
+using System.Runtime.Serialization;
 
 namespace FinanceServices.Components
 {
+    [DataContract]
     public class DatabaseProvider
     {
         #region Var
-        private finance_dbDataSet finance_dbDataSet;
+        private Finance_dbDataSet finance_dbDataSet;
         private DatabaseConnectionStatus databaseConnectionStatus;
         private DatabaseStatus databaseStatus;
         #endregion
 
         #region Propertyes
+
         public DatabaseConnectionStatus GetDatabaseConnectionStatus
         {
             get
@@ -30,18 +33,28 @@ namespace FinanceServices.Components
             }
         }
 
-        public DataTable GetDataTable(string TableName)
+        public Finance_dbDataSet GetDataSet
         {
-            var obj = finance_dbDataSet.Tables["Categories"];
+            get
+            {
+                return finance_dbDataSet;
+            }
+        }
 
-            return finance_dbDataSet.Tables[TableName];
+        [DataMember]
+        public DataTable GetCategoriesDataTable
+        {
+            get
+            {
+                return finance_dbDataSet.Categories;
+            }
         }
         #endregion
 
         #region Ctor
         public DatabaseProvider()
         {
-            finance_dbDataSet = new finance_dbDataSet();
+            finance_dbDataSet = new Finance_dbDataSet();
         }
         #endregion
 
@@ -54,6 +67,13 @@ namespace FinanceServices.Components
             //}
 
             return false;
+        }
+
+        public DataTable GetDatabaseTable(string tableName)
+        {
+            //finance_dbDataSet.Tables[tableName];
+
+            return finance_dbDataSet.Tables[tableName];
         }
 
         //public DatabaseResponce GetUser(string login, string password)

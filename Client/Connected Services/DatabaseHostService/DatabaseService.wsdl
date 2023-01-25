@@ -34,7 +34,6 @@
       <xsd:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/FinanceServices.Enum" />
-      <xsd:import schemaLocation="http://localhost:8301/Design_Time_Addresses/FinanceServices/DatabaseService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IDatabaseService_Connect_InputMessage">
@@ -61,12 +60,6 @@
   <wsdl:message name="IDatabaseService_GetDatabaseStatus_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDatabaseStatusResponse" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseService_GetDatabaseTable_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDatabaseTable" />
-  </wsdl:message>
-  <wsdl:message name="IDatabaseService_GetDatabaseTable_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDatabaseTableResponse" />
-  </wsdl:message>
   <wsdl:message name="IDatabaseService_DataCallBack_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:DataCallBack" />
   </wsdl:message>
@@ -86,10 +79,6 @@
     <wsdl:operation name="GetDatabaseStatus">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetDatabaseStatus" message="tns:IDatabaseService_GetDatabaseStatus_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetDatabaseStatusResponse" message="tns:IDatabaseService_GetDatabaseStatus_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetDatabaseTable">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetDatabaseTable" message="tns:IDatabaseService_GetDatabaseTable_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetDatabaseTableResponse" message="tns:IDatabaseService_GetDatabaseTable_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DataCallBack">
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/DataCallBack" message="tns:IDatabaseService_DataCallBack_OutputCallbackMessage" />
@@ -134,15 +123,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDatabaseTable">
-      <soap12:operation soapAction="http://tempuri.org/IDatabaseService/GetDatabaseTable" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="DataCallBack">
       <soap12:operation soapAction="http://tempuri.org/IDatabaseService/DataCallBack" style="document" />
       <wsdl:output>
@@ -156,7 +136,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8302/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-JJJV4S3\БрагинФилиал</Upn>
+          <Upn>DESKTOP-EPIF3OI\HP</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

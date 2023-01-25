@@ -4,7 +4,9 @@ using FinanceServices.Interfaces;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.Text.Json;
 
 namespace FinanceServices.Components
 {
@@ -15,6 +17,12 @@ namespace FinanceServices.Components
         private List<Session> Sessions;
 
         private DatabaseProvider databaseProvider;
+
+
+        #endregion
+
+        #region Propertyes
+        public DatabaseProvider GetDatabaseProvider { get => databaseProvider; }
         #endregion
 
         #region Ctors
@@ -49,11 +57,6 @@ namespace FinanceServices.Components
         public DatabaseStatus GetDatabaseStatus()
         {
             return databaseProvider.GetDatabaseStatus;
-        }
-
-        public DataTable GetDatabaseTable(string TableName)
-        {
-            return databaseProvider.GetDataTable(TableName);
         }
 
         //public string UserExist(User obj)
