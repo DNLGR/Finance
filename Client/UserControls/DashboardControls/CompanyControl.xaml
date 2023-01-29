@@ -33,25 +33,23 @@
 
         <TextBlock Grid.Row="0" Text="Организации" VerticalAlignment="Center" FontSize="18" Margin="10 0" />
 
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False"
-                  Margin="5"
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding DatabaseContent.Table}"
                   CanUserAddRows="False"
-                  HeadersVisibility="All"
-                  ItemsSource="{Binding categoriesDataTable}"
-                  SelectionUnit="{Binding ElementName=selectionUnitComboBox, Path=SelectedValue}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="УНП организации" />
-                <DataGridTextColumn Header="Наименование организации" />
-                <DataGridTextColumn Header="Организационно-правовая форма" />
-                <DataGridTextColumn Header="Ориентация организации" />
-                <DataGridTextColumn Header="Адресс" />
-            </DataGrid.Columns>
+                  SelectionUnit="FullRow"
+                  SelectionMode="Extended"
+                  SelectedItem="{Binding SelectedRow, Mode=TwoWay}">
         </DataGrid>
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Content="Добавить организацию" />
-            <Button Content="Редактировать организацию" />
-            <Button Content="Удалить организацию" />
+            <Button Content="Добавить компанию" 
+                    Command="{Binding AddCommand}" />
+
+            <Button Content="Редактировать компанию" 
+                    Command="{Binding EditCommand}" />
+
+            <Button Content="Удалить компанию"
+                    Command="{Binding RemoveCommand}" />
         </StackPanel>
     </Grid>
 </UserControl>

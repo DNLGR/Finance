@@ -32,24 +32,24 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Text="Факторы" VerticalAlignment="Center" FontSize="18" Margin="10 0" />
-
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False"
-                  Margin="5"
+        
+        <DataGrid Grid.Row="1"
+                  ItemsSource="{Binding DatabaseContent.Table}"
                   CanUserAddRows="False"
-                  HeadersVisibility="All"
-                  ItemsSource="{Binding categoriesDataTable}"
-                  SelectionUnit="{Binding ElementName=selectionUnitComboBox, Path=SelectedValue}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Код страницы" />
-                <DataGridTextColumn Header="Наименование фактора" />
-                <DataGridTextColumn Header="Категория фактора" />
-            </DataGrid.Columns>
+                  SelectionUnit="FullRow"
+                  SelectionMode="Extended"
+                  SelectedItem="{Binding SelectedRow, Mode=TwoWay}">
         </DataGrid>
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Content="Добавить фактор" />
-            <Button Content="Редактировать фактор" />
-            <Button Content="Удалить фактор" />
+            <Button Content="Добавить компанию" 
+                    Command="{Binding AddCommand}" />
+
+            <Button Content="Редактировать компанию" 
+                    Command="{Binding EditCommand}" />
+
+            <Button Content="Удалить компанию"
+                    Command="{Binding RemoveCommand}" />
         </StackPanel>
     </Grid>
 </UserControl>

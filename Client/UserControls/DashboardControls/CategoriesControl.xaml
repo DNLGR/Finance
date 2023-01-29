@@ -14,9 +14,6 @@
     </UserControl.DataContext>
 
     <UserControl.Resources>
-        <!--<Style TargetType="DataGrid">
-            
-        </Style>-->
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}">
             <Setter Property="Margin" Value="5" />
         </Style>
@@ -38,13 +35,20 @@
         <DataGrid Grid.Row="1"
                   ItemsSource="{Binding DatabaseContent.Table}"
                   CanUserAddRows="False"
-                  SelectionUnit="Cell"
-                  SelectionMode="Extended" />
+                  SelectionUnit="FullRow"
+                  SelectionMode="Single"
+                  SelectedItem="{Binding SelectedRow, Mode=TwoWay}">
+        </DataGrid>
 
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Content="Добавить категорию" />
-            <Button Content="Редактировать категорию" />
-            <Button Content="Удалить категорию" />
+            <Button Content="Добавить категорию" 
+                    Command="{Binding AddCommand}" />
+            
+            <Button Content="Редактировать категорию" 
+                    Command="{Binding EditCommand}" />
+            
+            <Button Content="Удалить категорию"
+                    Command="{Binding RemoveCommand}" />
         </StackPanel>
     </Grid>
 </UserControl>

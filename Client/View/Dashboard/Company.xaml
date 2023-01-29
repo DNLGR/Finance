@@ -1,0 +1,59 @@
+﻿<Window x:Class="Client.View.Dashboard.Company"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client.View.Dashboard"
+        mc:Ignorable="d"
+        Title="Company"        
+        Height="400" 
+        Width="500"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        WindowStyle="None"
+        ResizeMode="NoResize">
+    
+    <Window.Resources>
+        <Style TargetType="StackPanel">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="Width" Value="180" />
+        </Style>
+
+        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Width" Value="180" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="0.5">
+            <StackPanel>
+                <TextBlock x:Name="HeaderText" Text="Добавление компании" HorizontalAlignment="Center" />
+
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="Наименование компании" x:Name="NameCompany" />
+                        <TextBox Text="УНП компании" x:Name="UnpCompany" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="Адрес компании" x:Name="AdressCompany" Width="250" />
+                    </StackPanel>
+                    
+                    <TextBox Text="Организационно правовая-форма" x:Name="LegalCompany" Width="250"  />
+
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Добавить категорию" x:Name="ButtonControl" />
+                        <Button Content="Отменить" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

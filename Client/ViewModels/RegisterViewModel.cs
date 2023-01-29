@@ -85,11 +85,11 @@ namespace Client.ViewModels
 
                         new SecretWindow(Local_user.User_secret_code.ToString()).ShowDialog();
 
-                        //Core.GetServiceInstance().Service.Execute("INSERT INTO Users ([User_login], [User_password], [User_first_name], " +
-                        //    "[User_middle_name], [User_last_name], [User_secret_code], [User_position_code], [User_role_code]) VALUES" +
-                        //    $"('{Local_user.User_login}', '{Local_user.User_password}', '{Local_user.User_first_name}', " +
-                        //    $"'{Local_user.User_middle_name}', '{Local_user.User_last_name}', {Local_user.User_secret_code}, " +
-                        //    $"3, 2)");
+                        Core.GetServiceInstance().Service.Execute("INSERT INTO Users ([User_login], [User_password], [User_first_name], " +
+                            "[User_middle_name], [User_last_name], [User_secret_code], [User_position_code], [User_role_code]) VALUES" +
+                            $"('{Local_user.User_login}', '{Local_user.User_password}', '{Local_user.User_first_name}', " +
+                            $"'{Local_user.User_middle_name}', '{Local_user.User_last_name}', {Local_user.User_secret_code}, " +
+                            $"3, 2)");
 
                         Core.GetNavigatorInstance().MainContentViewModel = new DashboardViewModel();
                     }

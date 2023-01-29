@@ -16,7 +16,16 @@ namespace Client.ViewModels.DashboardViewModels
         #region Ctor
         public PropertyesViewModel()
         {
-            
+            if (DatabaseContent == null)
+            {
+                DatabaseContent = Core.GetServiceInstance().Service.Get("Categories");
+
+                DatabaseContent.Table.Columns[0].ColumnName = "Код категории";
+
+                DatabaseContent.Table.Columns[1].ColumnName = "Наименование категории";
+
+                RaisePropertyChanged(nameof(DatabaseContent));
+            }
         }
         #endregion
 
