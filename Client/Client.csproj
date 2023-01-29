@@ -102,49 +102,85 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Components\ClientPage.cs" />
     <Compile Include="Components\Core.cs" />
-    <Compile Include="Components\Navigator.cs" />
-    <Compile Include="Components\ServiceManager.cs" />
-    <Compile Include="View\Pages\Append.xaml.cs">
+    <Compile Include="Components\NavigationStore.cs" />
+    <Compile Include="Enum\DatabaseStatus.cs" />
+    <Compile Include="Components\ServiceProvider.cs" />
+    <Compile Include="Interfaces\IDatabaseContentControl.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="UserControls\DashboardControls\EditControls\BalanceEdit.xaml.cs">
+      <DependentUpon>BalanceEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DashboardControls\EditControls\CategoriesEdit.xaml.cs">
+      <DependentUpon>CategoriesEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RestoreControl.xaml.cs">
+      <DependentUpon>RestoreControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\BalanceViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\CategoriesViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\CompanyViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\DescriptionViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\FactorsViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\LeadersViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\PropertyesViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModels\UsersViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="UserControls\Append.xaml.cs">
       <DependentUpon>Append.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Content.xaml.cs">
-      <DependentUpon>Content.xaml</DependentUpon>
+    <Compile Include="UserControls\DashboardControl.xaml.cs">
+      <DependentUpon>DashboardControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Database\DBCategories.xaml.cs">
-      <DependentUpon>DBCategories.xaml</DependentUpon>
+    <Compile Include="UserControls\DashboardControls\CategoriesControl.xaml.cs">
+      <DependentUpon>CategoriesControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Database\DBBalance.xaml.cs">
-      <DependentUpon>DBBalance.xaml</DependentUpon>
+    <Compile Include="UserControls\DashboardControls\BalanceControl.xaml.cs">
+      <DependentUpon>BalanceControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Database\DBCompany.xaml.cs">
-      <DependentUpon>DBCompany.xaml</DependentUpon>
+    <Compile Include="UserControls\DashboardControls\CompanyControl.xaml.cs">
+      <DependentUpon>CompanyControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Database\DBDescription.xaml.cs">
-      <DependentUpon>DBDescription.xaml</DependentUpon>
+    <Compile Include="UserControls\DashboardControls\DescriptionConrol.xaml.cs">
+      <DependentUpon>DescriptionConrol.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Database\DBFactors.xaml.cs">
-      <DependentUpon>DBFactors.xaml</DependentUpon>
+    <Compile Include="UserControls\DashboardControls\FactorsControl.xaml.cs">
+      <DependentUpon>FactorsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Database\DBLeaders.xaml.cs">
-      <DependentUpon>DBLeaders.xaml</DependentUpon>
+    <Compile Include="UserControls\DashboardControls\LeadersControl.xaml.cs">
+      <DependentUpon>LeadersControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Database\DBPropertyes.xaml.cs">
-      <DependentUpon>DBPropertyes.xaml</DependentUpon>
+    <Compile Include="UserControls\DashboardControls\PropertyesControl.xaml.cs">
+      <DependentUpon>PropertyesControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Database\DBUsers.xaml.cs">
-      <DependentUpon>DBUsers.xaml</DependentUpon>
+    <Compile Include="UserControls\DashboardControls\UsersControl.xaml.cs">
+      <DependentUpon>UsersControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
+    <Compile Include="UserControls\LoginControl.xaml.cs">
+      <DependentUpon>LoginControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\Register.xaml.cs">
-      <DependentUpon>Register.xaml</DependentUpon>
+    <Compile Include="UserControls\RegisterControl.xaml.cs">
+      <DependentUpon>RegisterControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\SecretCode.xaml.cs">
-      <DependentUpon>SecretCode.xaml</DependentUpon>
+    <Compile Include="ViewModels\RestoreViewModel.cs" />
+    <Compile Include="View\SecretWindow.xaml.cs">
+      <DependentUpon>SecretWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="UserControls\DashboardControls\EditControls\BalanceEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DashboardControls\EditControls\CategoriesEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\RestoreControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -162,55 +198,55 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Pages\Append.xaml">
+    <Page Include="UserControls\Append.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Content.xaml">
+    <Page Include="UserControls\DashboardControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Database\DBCategories.xaml">
+    <Page Include="UserControls\DashboardControls\CategoriesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Database\DBBalance.xaml">
+    <Page Include="UserControls\DashboardControls\BalanceControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Database\DBCompany.xaml">
+    <Page Include="UserControls\DashboardControls\CompanyControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Database\DBDescription.xaml">
+    <Page Include="UserControls\DashboardControls\DescriptionConrol.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Database\DBFactors.xaml">
+    <Page Include="UserControls\DashboardControls\FactorsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Database\DBLeaders.xaml">
+    <Page Include="UserControls\DashboardControls\LeadersControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Database\DBPropertyes.xaml">
+    <Page Include="UserControls\DashboardControls\PropertyesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Database\DBUsers.xaml">
+    <Page Include="UserControls\DashboardControls\UsersControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Login.xaml">
+    <Page Include="UserControls\LoginControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\Register.xaml">
+    <Page Include="UserControls\RegisterControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\SecretCode.xaml">
+    <Page Include="View\SecretWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,10 +279,15 @@
     <None Include="Connected Services\DatabaseHostService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\DatabaseHostService\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Data.Models.DatabaseAnswer.datasource" />
     <None Include="Properties\DataSources\Data.Models.Session.datasource" />
     <None Include="Properties\DataSources\Data.Models.User.datasource" />
+    <None Include="Properties\DataSources\FinanceServices.Components.Database.DatabaseTable.datasource" />
+    <None Include="Properties\DataSources\FinanceServices.Interfaces.Categories.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -278,15 +319,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FinanceServices\FinanceServices.csproj">
       <Project>{4660BA4B-697B-4F94-A292-26C12961FFFB}</Project>
       <Name>FinanceServices</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.7.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.7.1\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

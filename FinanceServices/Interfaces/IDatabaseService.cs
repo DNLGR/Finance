@@ -1,11 +1,9 @@
-﻿using FinanceServices.Components;
-using FinanceServices.Enum;
-using System.Runtime.Serialization;
+﻿using FinanceServices.Components.Database;
 using System.ServiceModel;
 
 namespace FinanceServices.Interfaces
 {
-    [ServiceContract(CallbackContract =typeof(IDatabaseDataCallBack))]
+    [ServiceContract]
     public interface IDatabaseService
     {
         [OperationContract]
@@ -14,19 +12,15 @@ namespace FinanceServices.Interfaces
         [OperationContract]
         void Disconnect(int ApplicationHashCode);
 
-        [OperationContract]
-        DatabaseConnectionStatus GetDatabaseConnectionStatus();
+
 
         [OperationContract]
-        DatabaseStatus GetDatabaseStatus();
+        DatabaseTable Get(string tableName);
 
         [OperationContract]
-        DatabaseProvider GetDatabaseProvider { get; }
-    }
+        void Execute(string request);
 
-    public interface IDatabaseDataCallBack
-    {
-        [OperationContract(IsOneWay = true)]
-        void DataCallBack(string obj);
+        [OperationContract]
+        bool Exsist(string request);
     }
 }

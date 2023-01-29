@@ -4,15 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinanceServices", "FinanceServices\FinanceServices.csproj", "{4660BA4B-697B-4F94-A292-26C12961FFFB}"
-	ProjectSection(ProjectDependencies) = postProject
-		{EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B} = {EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{F92E9B0C-C8C2-4B29-967B-A94762D99362}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{9E260427-A625-4E12-9E44-9C717A97A498}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +27,6 @@ Global
 		{9E260427-A625-4E12-9E44-9C717A97A498}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E260427-A625-4E12-9E44-9C717A97A498}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E260427-A625-4E12-9E44-9C717A97A498}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

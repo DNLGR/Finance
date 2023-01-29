@@ -5,26 +5,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
+        xmlns:ViewModels="clr-namespace:Client.ViewModels"
+        xmlns:UserControls="clr-namespace:Client.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="500" 
         Width="800"
         WindowStartupLocation="CenterScreen"
         WindowState="Normal"
-        WindowStyle="None" Loaded="Window_Loaded"
+        WindowStyle="None"
         ResizeMode="NoResize">
 
-    <Window.Resources>
-        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}" />
-        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}">
-            <Setter Property="Margin" Value="5 0 5 0" />
-        </Style>
-    </Window.Resources>
+    <Window.DataContext>
+        <ViewModels:MainViewModel/>
+    </Window.DataContext>
    
     <Grid>
-        <Frame Grid.ColumnSpan="3" 
-               Grid.RowSpan="2"
-               NavigationUIVisibility="Hidden"
-               x:Name="MainContentFrame"/>
+        <ContentControl Content="{Binding ContentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type ViewModels:LoginViewModel}">
+                    <UserControls:LoginControl />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type ViewModels:RegisterViewModel}">
+                    <UserControls:RegisterControl />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type ViewModels:RestoreViewModel}">
+                    <UserControls:RestoreControl />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type ViewModels:DashboardViewModel}">
+                    <UserControls:DashboardControl />
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
     </Grid>
 </Window>

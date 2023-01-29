@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace Host
 {
     internal class Program
     {
+        public static bool IsExit = false;
         static void Main(string[] args)
         {
             using (var host = new ServiceHost(typeof(FinanceServices.Components.DatabaseService)))
@@ -27,8 +28,15 @@ namespace Host
 
                 while (true)
                 {
+                    if (IsExit)
+                    {
+                        break;
+                    }
+
                     Execute(Console.ReadLine(), host);
                 }
+
+                Console.ReadKey();
             }
         }
 
@@ -36,12 +44,16 @@ namespace Host
         {
             switch (command.ToLower())
             {
-                case "cls": Console.Clear();
+                case "cls": Console.Clear(); break;
+
+                case "exit":
+                    Console.WriteLine("\n Host is closing ...");
+                    host.Close();
+                    Console.WriteLine("\n Please any key to exit.");
+                    IsExit = true;
                     break;
 
-                case "status":
-                    Console.WriteLine($"Current state: {host.State}, Time to start: {DateTime.Now}");
-                    break;
+                case "status": Console.WriteLine($"Current state: {host.State}, Time to start: {DateTime.Now}"); break;
             }
         }
     }

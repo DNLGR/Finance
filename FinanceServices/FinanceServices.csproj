@@ -50,6 +50,9 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.7.0.0\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -90,19 +93,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\DatabaseProvider.cs" />
-    <Compile Include="Components\DatabaseRequest.cs" />
-    <Compile Include="Components\DatabaseResponce.cs" />
     <Compile Include="Components\DatabaseService.cs" />
-    <Compile Include="Components\DatabaseException.cs" />
-    <Compile Include="Enum\DatabaseConnectionStatus.cs" />
-    <Compile Include="Enum\DatabaseStatus.cs" />
-    <Compile Include="Finance_dbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Finance_dbDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="Components\Database\DatabaseTable.cs" />
+    <Compile Include="Components\FileProvider.cs" />
+    <Compile Include="Interfaces\IDatabaseProvider.cs" />
     <Compile Include="Interfaces\IDatabaseService.cs" />
-    <Compile Include="Models\ServerSession.cs" />
+    <Compile Include="Interfaces\IDatabaseTable.cs" />
+    <Compile Include="Interfaces\IFileProvider.cs" />
+    <Compile Include="Models\Session.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -112,17 +110,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Finance_dbDataSet.xsc">
-      <DependentUpon>Finance_dbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Finance_dbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Finance_dbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Finance_dbDataSet.xss">
-      <DependentUpon>Finance_dbDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -141,14 +128,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Data\Data.csproj">
-      <Project>{EEC9C168-1871-4EAB-AEA5-8EE0F49D6B7B}</Project>
-      <Name>Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

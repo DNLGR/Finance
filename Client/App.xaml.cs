@@ -1,8 +1,6 @@
 ﻿using Client.Components;
-using FinanceServices;
-using System;
-using System.Data;
-using System.Text.Json;
+using Client.ViewModels;
+using DevExpress.Mvvm;
 using System.Windows;
 
 namespace Client
@@ -11,26 +9,16 @@ namespace Client
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            _ = Core.GetInstance();
+            base.OnStartup(e);
 
-            try
-            {
-                Core.GetInstance().Connect(Core.GetInstance().GetServiceManager.DatabaseServiceClient.Connect(GetHashCode()));
+            new MainWindow().Show();            
+        }
 
-                //Core.GetInstance().GetFinanceDataSet = JsonSerializer.Deserialize<Finance_dbDataSet>(Core.GetInstance().GetServiceManager.DatabaseServiceClient.GetDataSet());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
 
-                throw;
-            }
-            finally
-            {
-                Core.GetInstance().Connect(GetHashCode());
-            }
-
-            new MainWindow().Show();
+            //Core.GetInstance().GetServiceManager.Disconnect();
         }
     }
 }

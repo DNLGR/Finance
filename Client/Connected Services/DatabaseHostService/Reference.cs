@@ -12,7 +12,7 @@ namespace Client.DatabaseHostService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DatabaseHostService.IDatabaseService", CallbackContract=typeof(Client.DatabaseHostService.IDatabaseServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DatabaseHostService.IDatabaseService")]
     public interface IDatabaseService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Connect", ReplyAction="http://tempuri.org/IDatabaseService/ConnectResponse")]
@@ -27,24 +27,23 @@ namespace Client.DatabaseHostService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Disconnect", ReplyAction="http://tempuri.org/IDatabaseService/DisconnectResponse")]
         System.Threading.Tasks.Task DisconnectAsync(int ApplicationHashCode);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatusResponse")]
-        FinanceServices.Enum.DatabaseConnectionStatus GetDatabaseConnectionStatus();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Get", ReplyAction="http://tempuri.org/IDatabaseService/GetResponse")]
+        FinanceServices.Components.Database.DatabaseTable Get(string tableName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseConnectionStatusResponse")]
-        System.Threading.Tasks.Task<FinanceServices.Enum.DatabaseConnectionStatus> GetDatabaseConnectionStatusAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Get", ReplyAction="http://tempuri.org/IDatabaseService/GetResponse")]
+        System.Threading.Tasks.Task<FinanceServices.Components.Database.DatabaseTable> GetAsync(string tableName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseStatusResponse")]
-        FinanceServices.Enum.DatabaseStatus GetDatabaseStatus();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Execute", ReplyAction="http://tempuri.org/IDatabaseService/ExecuteResponse")]
+        void Execute(string tableName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/GetDatabaseStatus", ReplyAction="http://tempuri.org/IDatabaseService/GetDatabaseStatusResponse")]
-        System.Threading.Tasks.Task<FinanceServices.Enum.DatabaseStatus> GetDatabaseStatusAsync();
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDatabaseServiceCallback {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Execute", ReplyAction="http://tempuri.org/IDatabaseService/ExecuteResponse")]
+        System.Threading.Tasks.Task ExecuteAsync(string tableName);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDatabaseService/DataCallBack")]
-        void DataCallBack(string obj);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Exsist", ReplyAction="http://tempuri.org/IDatabaseService/ExsistResponse")]
+        bool Exsist(string request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseService/Exsist", ReplyAction="http://tempuri.org/IDatabaseService/ExsistResponse")]
+        System.Threading.Tasks.Task<bool> ExsistAsync(string request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -53,26 +52,25 @@ namespace Client.DatabaseHostService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DatabaseServiceClient : System.ServiceModel.DuplexClientBase<Client.DatabaseHostService.IDatabaseService>, Client.DatabaseHostService.IDatabaseService {
+    public partial class DatabaseServiceClient : System.ServiceModel.ClientBase<Client.DatabaseHostService.IDatabaseService>, Client.DatabaseHostService.IDatabaseService {
         
-        public DatabaseServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
-                base(callbackInstance) {
+        public DatabaseServiceClient() {
         }
         
-        public DatabaseServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
-                base(callbackInstance, endpointConfigurationName) {
+        public DatabaseServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
         }
         
-        public DatabaseServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
-                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        public DatabaseServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DatabaseServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        public DatabaseServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
         }
         
-        public DatabaseServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(callbackInstance, binding, remoteAddress) {
+        public DatabaseServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
         }
         
         public int Connect(int ApplicationHashCode) {
@@ -91,20 +89,28 @@ namespace Client.DatabaseHostService {
             return base.Channel.DisconnectAsync(ApplicationHashCode);
         }
         
-        public FinanceServices.Enum.DatabaseConnectionStatus GetDatabaseConnectionStatus() {
-            return base.Channel.GetDatabaseConnectionStatus();
+        public FinanceServices.Components.Database.DatabaseTable Get(string tableName) {
+            return base.Channel.Get(tableName);
         }
         
-        public System.Threading.Tasks.Task<FinanceServices.Enum.DatabaseConnectionStatus> GetDatabaseConnectionStatusAsync() {
-            return base.Channel.GetDatabaseConnectionStatusAsync();
+        public System.Threading.Tasks.Task<FinanceServices.Components.Database.DatabaseTable> GetAsync(string tableName) {
+            return base.Channel.GetAsync(tableName);
         }
         
-        public FinanceServices.Enum.DatabaseStatus GetDatabaseStatus() {
-            return base.Channel.GetDatabaseStatus();
+        public void Execute(string tableName) {
+            base.Channel.Execute(tableName);
         }
         
-        public System.Threading.Tasks.Task<FinanceServices.Enum.DatabaseStatus> GetDatabaseStatusAsync() {
-            return base.Channel.GetDatabaseStatusAsync();
+        public System.Threading.Tasks.Task ExecuteAsync(string tableName) {
+            return base.Channel.ExecuteAsync(tableName);
+        }
+        
+        public bool Exsist(string request) {
+            return base.Channel.Exsist(request);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ExsistAsync(string request) {
+            return base.Channel.ExsistAsync(request);
         }
     }
 }

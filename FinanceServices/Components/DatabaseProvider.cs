@@ -1,110 +1,104 @@
-﻿using FinanceServices.Enum;
-using System;
-using System.ComponentModel;
+﻿using System.Data.OleDb;
 using System.Data;
-using System.Runtime.Serialization;
+using FinanceServices.Interfaces;
+using System;
+using System.Windows;
 
 namespace FinanceServices.Components
 {
-    [DataContract]
-    public class DatabaseProvider
+    public class DatabaseProvider : IDatabaseProvider
     {
         #region Var
-        private Finance_dbDataSet finance_dbDataSet;
-        private DatabaseConnectionStatus databaseConnectionStatus;
-        private DatabaseStatus databaseStatus;
-        #endregion
-
-        #region Propertyes
-
-        public DatabaseConnectionStatus GetDatabaseConnectionStatus
-        {
-            get
-            {
-                return databaseConnectionStatus;
-            }
-        }
-
-        public DatabaseStatus GetDatabaseStatus
-        {
-            get
-            {
-                return databaseStatus;
-            }
-        }
-
-        public Finance_dbDataSet GetDataSet
-        {
-            get
-            {
-                return finance_dbDataSet;
-            }
-        }
-
-        [DataMember]
-        public DataTable GetCategoriesDataTable
-        {
-            get
-            {
-                return finance_dbDataSet.Categories;
-            }
-        }
+        private string databaseConnectionString;
+        private OleDbCommand databaseCommand;
+        private OleDbConnection databaseConnection;
+        private OleDbDataReader databaseReader;
+        private OleDbDataAdapter dataAdapter;
         #endregion
 
         #region Ctor
-        public DatabaseProvider()
+        public DatabaseProvider(string databaseConnectionString)
         {
-            finance_dbDataSet = new Finance_dbDataSet();
+            this.databaseConnectionString = databaseConnectionString;
+
+            Console.WriteLine($"Database connection path - {databaseConnectionString}");
         }
         #endregion
 
         #region Method
-        public bool Exsist(string TableName, params string[] values)
+        public void Fill(ref DataTable dataTable, string request)
         {
-            //foreach (var item in dataTable.Rows)
-            //{
-            //    return true;
-            //}
+            try
+            {
+                using (databaseConnection = new OleDbConnection(databaseConnectionString))
+                {
+                    using (databaseCommand = new OleDbCommand(request, databaseConnection))
+                    {
+                        databaseConnection.Open();
 
-            return false;
+                        dataAdapter = new OleDbDataAdapter(databaseCommand);
+
+                        dataAdapter.Fill(dataTable);
+
+                        databaseCommand.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
-        public DataTable GetDatabaseTable(string tableName)
+        public void ExecuteNonQuery(string request)
         {
-            //finance_dbDataSet.Tables[tableName];
+            try
+            {
+                using (databaseConnection = new OleDbConnection(databaseConnectionString))
+                {
+                    using (databaseCommand = new OleDbCommand(request, databaseConnection))
+                    {
+                        databaseConnection.Open();
 
-            return finance_dbDataSet.Tables[tableName];
+                        databaseCommand.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
-        //public DatabaseResponce GetUser(string login, string password)
-        //{
-        //    if (login is null || password is null)
-        //    {
-        //        return new DatabaseResponce()
-        //        {
-        //            Exception = new DatabaseException() { Title = "Ошибка считывания данных", 
-        //                Description = "Проверьте правильность вводимых данных" },
-        //            Values = null,
-        //            ValueType = typeof(Exception)
-        //        };
-        //    }
+        public bool Exsist(string request)
+        {
+            try
+            {
+                using (databaseConnection = new OleDbConnection(databaseConnectionString))
+                {
+                    using (databaseCommand = new OleDbCommand(request, databaseConnection))
+                    {
+                        databaseConnection.Open();
 
-        //    if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
-        //    {
-        //        return new DatabaseResponce()
-        //        {
-        //            Exception = new DatabaseException()
-        //            {
-        //                Title = "Ошибка считывания данных",
-        //                Description = "Проверьте правильность вводимых данных"
-        //            },
-        //            Values = null,
-        //            ValueType = typeof(Exception)
-        //        };
-        //    }
+                        using (databaseReader = databaseCommand.ExecuteReader()) 
+                        {
+                            if (databaseReader.HasRows)
+                            {
+                                return true;
+                            }
+                        } 
 
-        //    finance_dbDataSet.Users.row
-        //}
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+                return false;
+            }
+        }
         #endregion
     }
 }

@@ -1,110 +1,44 @@
-﻿using Data.Models;
-using System;
-using System.Data;
-using System.Text.Json;
+﻿using Client.ViewModels;
 
 namespace Client.Components
 {
     public class Core
     {
-        #region Public Propertyes
-        public string GetCurrentDirectory
-        {
-            get => Environment.CurrentDirectory;
-        }
-
-        //public User GetUser 
-        //{ 
-        //    get
-        //    {
-        //        if (user == null)
-        //        {
-        //            return null;
-        //        }
-                
-        //        return user;
-        //    }
-        //}
-
-        //public User SetUser
-        //{
-        //    set
-        //    {
-        //        if (value is null)
-        //        {
-        //            return;
-        //        }
-
-        //        if (string.IsNullOrEmpty(value.LoginHash) && string.IsNullOrEmpty(value.PasswordHash))
-        //        {
-        //            return;
-        //        }
-
-        //        if (string.IsNullOrEmpty(value.SecretCodeHash))
-        //        {
-        //            return;
-        //        }
-
-        //        user = value;
-        //    }
-        //}
-
-        public ServiceManager GetServiceManager
-        {
-            get => serviceManager;
-        }
-
-        public Navigator GetNavigator
-        {
-            get => navigatorManager;
-        }
-
-        public DataSet GetFinanceDataSet { get; set; }
-        #endregion
-
-        #region Private var
-        private static Core instance;
-        //private User user;
-        private ServiceManager serviceManager;
-        private Navigator navigatorManager;
-        private int applicationHashCode;
-        #endregion
-
-        #region Ctor
-        private Core()
-        {
-            serviceManager = new ServiceManager();
-
-            navigatorManager = new Navigator();
-        }
+        #region Var
+        private static Core coreInstance;
+        private static ServiceProvider serviceInstance;
+        private static NavigationStore navigatorInstance;
         #endregion
 
         #region Methods
         public static Core GetInstance()
         {
-            if (instance == null)
+            if (coreInstance == null)
             {
-                instance = new Core();
+                coreInstance = new Core();
             }
 
-            return instance;
+            return coreInstance;
         }
 
-        public void Connect(int value)
+        public static ServiceProvider GetServiceInstance()
         {
-            applicationHashCode = value;
+            if (serviceInstance == null)
+            {
+                serviceInstance = new ServiceProvider();
+            }
+
+            return serviceInstance;
         }
 
-
-
-        public string Serialize<T>(T obj)
+        public static NavigationStore GetNavigatorInstance()
         {
-            return JsonSerializer.Serialize<T>(obj);
-        }
+            if (navigatorInstance == null)
+            {
+                navigatorInstance = new NavigationStore();
+            }
 
-        public T DeSerialize<T>(string obj)
-        {
-            return JsonSerializer.Deserialize<T>(obj);
+            return navigatorInstance;
         }
         #endregion
     }
